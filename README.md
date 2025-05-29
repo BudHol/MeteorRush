@@ -1,6 +1,6 @@
 # Meteor Rush 🚀
 
-![Meteor Rush Gameplay](images\Gameplay\gameplay1.png)
+![Meteor Rush Gameplay](images/Gameplay/gameplay1.png)
 
 A fast-paced space shooter game built with Pygame where you pilot a spaceship through an endless meteor field, surviving as long as possible while racking up points!
 
