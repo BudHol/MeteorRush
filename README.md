@@ -117,13 +117,12 @@ pygame.time.set_timer(meteor_event, 100)  # New meteor every 100ms
 pygame.time.set_timer(meteor_event, 50)   # New meteor every 50ms
 ```
 
-## Further upcoming add-ons to the game
+## Ways to further improve the game:
 
 1. **Power-ups**: Add temporary invincibility, rapid-fire, or shield power-ups
 2. **Different Meteor Types**: Create meteors with different sizes, speeds, and point values
 3. **High Score System**: Save and display the best survival times
 4. **Particle Effects**: Add thruster particles behind the player ship
-5. **Screen Boundaries**: Keep the player within screen bounds
-6. **Progressive Difficulty**: Gradually increase meteor spawn rate over time
+5. **Progressive Difficulty**: Gradually increase meteor spawn rate over time
 
 Happy coding and enjoy your Meteor Rush adventure! 🌟
