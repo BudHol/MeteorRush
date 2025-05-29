@@ -9,7 +9,7 @@ WINDOW_WIDTH, WINDOW_HEIGHT = 1280, 720
 display_surface=pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT)) 
 pygame.display.set_caption('Meteor Rush')
 
- 
+#making sprites for game components
 class Player(pygame.sprite.Sprite): 
     def __init__(self,groups):
         super().__init__(groups) 
@@ -124,6 +124,7 @@ star_surf = pygame.image.load('images\star.png')
 meteor_surf = pygame.image.load('images\meteor.png') 
 laser_Surf = pygame.image.load('images\laser.png') 
 
+#adjusting surfaces width and height to scale of the game
 width_meteor = meteor_surf.get_rect().width 
 height_meteor =meteor_surf.get_rect().height 
 meteor_surf = pygame.transform.scale(meteor_surf,(int(width_meteor*0.3),(height_meteor*0.3)))
@@ -136,11 +137,8 @@ for i in range(20):
     Stars(all_sprites,star_surf)
 player = Player(all_sprites) 
 
+#initialising system clock
 clock = pygame.time.Clock()
-
-surf = pygame.Surface((100,200))
-surf.fill('orange')
-x=100
 
 #font
 font = pygame.font.Font('images\Pixellettersfull-BnJ5.ttf', 60)  
@@ -157,11 +155,6 @@ gameplay_music = pygame.mixer.Sound('audio\game_music.wav')
 gameplay_music.play() 
 gameplay_music.set_volume(0.2)
 
-
-
-# player_rect = player_surf.get_frect(center=(WINDOW_WIDTH/2 , WINDOW_HEIGHT/2))  
-# meteor_rect = meteor_surf.get_frect(center=(WINDOW_WIDTH/2 , WINDOW_HEIGHT / 2)) 
-# laser_rect = laser_Surf.get_frect(bottomleft=(20,WINDOW_HEIGHT-20)) 
 
 meteor_event = pygame.event.custom_type()
 pygame.time.set_timer(meteor_event, 150)
@@ -180,10 +173,7 @@ while running:
         if event.type == meteor_event: 
             x,y = randint(0,WINDOW_WIDTH), randint(-200,-100)
             Meteor((all_sprites, meteor_sprites),meteor_surf,(x,y))
-        
-        # if event.type == pygame.MOUSEMOTION: 
-        #     player_rect.center = event.pos
-    
+
     all_sprites.update(dt)
     
     #managing lives
@@ -203,31 +193,11 @@ while running:
             laser.kill()   
             explosion_sound.play() 
             AnimatedExplosion(explosion_frames,laser.rect.midtop,all_sprites)
-    
-    
-            
-
-
-    
-
-    
 
     display_surface.fill('#2E2B4E')  
 
-
-    
-    # if player_rect.bottom > WINDOW_HEIGHT or player_rect.top < 0: 
-    #     player_direction.y *= -1  
-    # if player_rect.right > WINDOW_WIDTH or player_rect.left < 0: 
-    #     player_direction.x *= -1 
-    # if player_rect.right > WINDOW_WIDTH or player_rect.left < 0: 
-    #     player_direction = player_direction * -1
-
-    # display_surface.blit(player.image,player.rect) 
     display_score() 
     all_sprites.draw(display_surface)
-    # display_surface.blit(meteor_surf,meteor_rect)
-    
 
     pygame.display.update() 
 
